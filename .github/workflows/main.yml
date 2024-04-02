@@ -74,7 +74,7 @@ jobs:
             username: ${{ secrets.USERNAME }}
             password: ${{ secrets.PASSWORD_SERVER }}
             port: ${{ secrets.PORT_SERVER }}
-            script:
+            script: |
               cd /app
               source .env
               docker login ghcr.io -u $NAMESPACE -p $PERSONAL_ACCESS_TOKEN
