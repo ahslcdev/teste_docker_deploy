@@ -75,7 +75,7 @@ jobs:
             password: ${{ secrets.PASSWORD_SERVER }}
             port: ${{ secrets.PORT_SERVER }}
             script: |
-              cd /app
+              cd /home/ahslcdev/app
               source .env
               docker login ghcr.io -u $NAMESPACE -p $PERSONAL_ACCESS_TOKEN
               docker pull $WEB_IMAGE
