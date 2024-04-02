@@ -67,14 +67,6 @@ jobs:
           echo NGINX_IMAGE=${{ env.NGINX_IMAGE }} >> .env
           echo NAMESPACE=${{ secrets.NAMESPACE }} >> .env
           echo PERSONAL_ACCESS_TOKEN=${{ secrets.PERSONAL_ACCESS_TOKEN }} >> .env
-      # - name: Add the private SSH key to the ssh-agent
-      #   env:
-      #     SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-      #   run: |
-      #     mkdir -p ~/.ssh
-      #     ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-      #     ssh-keyscan github.com >> ~/.ssh/known_hosts
-      #     ssh-add - <<< "${{ secrets.PRIVATE_KEY }}"
       - name: Build and deploy images on DigitalOcean
         with:
             host: ${{ secrets.SSH_HOST }}
@@ -88,9 +80,3 @@ jobs:
               docker pull $WEB_IMAGE
               docker pull $NGINX_IMAGE
               docker-compose -f docker-compose.prod.yml up -d
-        # env:
-        #   SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        # run: |
-        #   scp  -o StrictHostKeyChecking=no -r ./.env ./docker-compose.prod.yml root@${{ secrets.DIGITAL_OCEAN_IP_ADDRESS }}:/app
-        #   ssh -o StrictHostKeyChecking=no root@${{ secrets.DIGITAL_OCEAN_IP_ADDRESS }} << 'ENDSSH'
-        # ENDSSH
