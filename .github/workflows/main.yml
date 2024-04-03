@@ -75,7 +75,7 @@ jobs:
             password: ${{ secrets.PASSWORD_SERVER }}
             port: ${{ secrets.PORT_SERVER }}
             script: |
-              cd /home/ahslcdev/app
+              cd /home/ahslcdev/app/teste_deploy_docker/
               source .env
               echo ${{ env.WEB_IMAGE }}
               echo $NGINX_IMAGE
