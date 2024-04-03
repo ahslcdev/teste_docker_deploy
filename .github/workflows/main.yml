@@ -77,6 +77,8 @@ jobs:
             script: |
               cd /home/ahslcdev/app
               source .env
+              echo $WEB_IMAGE
+              echo $NGINX_IMAGE
               docker login ghcr.io -u $NAMESPACE -p $PERSONAL_ACCESS_TOKEN
               docker pull $WEB_IMAGE
               docker pull $NGINX_IMAGE
