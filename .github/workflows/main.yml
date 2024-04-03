@@ -83,5 +83,3 @@ jobs:
               docker pull ghcr.io/ahslcdev/teste_docker_deploy/web:latest
               docker pull ghcr.io/ahslcdev/teste_docker_deploy/nginx:latest
               docker-compose -f docker-compose.prod.yml up -d
-            # docker pull $WEB_IMAGE
-            # docker pull $NGINX_IMAGE
