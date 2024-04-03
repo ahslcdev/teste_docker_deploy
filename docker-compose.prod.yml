@@ -16,7 +16,7 @@ services:
     #   - static_volume:/usr/src/app/staticfiles
     #   - media_volume:/usr/src/app/mediafiles
     ports:
-      - 80:90
+      - 90:80
     depends_on:
       - web
 
