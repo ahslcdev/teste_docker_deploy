@@ -75,10 +75,8 @@ jobs:
             password: ${{ secrets.PASSWORD_SERVER }}
             port: ${{ secrets.PORT_SERVER }}
             script: |
-              cd /home/ahslcdev/app/teste_deploy_docker/
+              cd /home/ahslcdev/app/teste_docker_deploy/
               source .env
-              echo ${{ env.WEB_IMAGE }}
-              echo $NGINX_IMAGE
               docker login ghcr.io -u ${{secrets.NAMESPACE}} -p ${{secrets.PERSONAL_ACCESS_TOKEN }}
               docker pull ghcr.io/ahslcdev/teste_docker_deploy/web:latest
               docker pull ghcr.io/ahslcdev/teste_docker_deploy/nginx:latest
