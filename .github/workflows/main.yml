@@ -79,7 +79,7 @@ jobs:
               source .env
               echo ${{ env.WEB_IMAGE }}
               echo $NGINX_IMAGE
-              docker login ghcr.io -u ${{secrets.NAMESPACE}} -p ${ {secrets.PERSONAL_ACCESS_TOKEN }}
+              docker login ghcr.io -u ${{secrets.NAMESPACE}} -p ${{secrets.PERSONAL_ACCESS_TOKEN }}
               docker pull ghcr.io/ahslcdev/teste_docker_deploy/web:latest
               docker pull ghcr.io/ahslcdev/teste_docker_deploy/nginx:latest
               docker-compose -f docker-compose.prod.yml up -d
