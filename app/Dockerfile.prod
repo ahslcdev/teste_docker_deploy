@@ -26,5 +26,6 @@ RUN pip install -r /usr/src/app/requirements.txt
 # copy project
 COPY . /usr/src/app/
 
+CMD ["nginx", "-g", "daemon off;"]
 # run entrypoint.prod.sh
 # ENTRYPOINT ["/usr/src/app/entrypoint.prod.sh"]
